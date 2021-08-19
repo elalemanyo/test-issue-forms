@@ -1,43 +1,66 @@
 name: Bug Report
 description: File a bug report
-title: "[Bug]: "
-labels: [bug, triage]
-assignees:
-  - octocat
+title: "[Fehler]: "
+labels: [Fehler]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report!
-  - type: input
-    id: contact
+        Vielen Dank, dass du dich die Zeit genommen hast, diesen Fehlerbericht auszufüllen!
+
+  - type: textarea
+    id: bug-description
     attributes:
-      label: Contact Details
-      description: How can we get in touch with you if we need more info?
-      placeholder: ex. email@example.com
+      label: Beschreibe den Bug
+      description: Eine klare und verständliche Beschreibung des Bugs.
+      placeholder: Sag uns, was du siehst!
+      value: "Ein Fehler ist passiert! 🙈"
+    validations:
+      required: true
+
+  - type: textarea
+    id: bug-steps
+    attributes:
+      label: Schritt für Schritt
+      description: Schritte, um den Fehler zu reproduzieren.
+      placeholder: Wie können wir den Fehler reproduzieren?
+      value: |
+        1. Gehe zu '...'
+        2. Klick auf '....'
+        3. Runterscrollen bis '....'
+        4. Der Fehler tritt auf
+    validations:
+      required: true
+
+  - type: textarea
+    id: bug-target-state
+    attributes:
+      label: Soll Zustand
+      description: Welches Verhalten oder Zustand wird erwartet?
+      placeholder: Wir erwarten ...
+      value: "Es soll sein..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: bug-screenshots
+    attributes:
+      label: Screenshots
+      description: Falls notwendig, hier bitte Screenshots oder andere hilfreiche Bilder platzieren.
     validations:
       required: false
+
   - type: textarea
-    id: what-happened
+    id: bug-url
     attributes:
-      label: What happened?
-      description: Also tell us, what did you expect to happen?
-      placeholder: Tell us what you see!
-      value: "A bug happened!"
+      label: URL
+      description: Falls möglich URL des Bugs
+      placeholder: ex. https://www.absolventa.de/
     validations:
-      required: true
+      required: false
+
   - type: dropdown
-    id: version
-    attributes:
-      label: Version
-      description: What version of our software are you running?
-      options:
-        - 1.0.2 (Default)
-        - 1.0.3 (Edge)
-    validations:
-      required: true
-  - type: dropdown
-    id: browsers
+    id: bug-browsers
     attributes:
       label: What browsers are you seeing the problem on?
       multiple: true
@@ -46,17 +69,4 @@ body:
         - Chrome
         - Safari
         - Microsoft Edge
-  - type: textarea
-    id: logs
-    attributes:
-      label: Relevant log output
-      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
-      render: shell
-  - type: checkboxes
-    id: terms
-    attributes:
-      label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
-      options:
-        - label: I agree to follow this project's Code of Conduct
-          required: true
+        - IE
